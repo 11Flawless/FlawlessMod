@@ -12,6 +12,7 @@ import net.minecraft.util.Identifier;
 public class ModItems {
 
     public static final Item PINK_GEM = registerItem("pink_gem", new Item(new Item.Settings()));
+    public static final Item RED_GEM = registerItem("red_gem",new Item (new Item.Settings()));
 
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, Identifier.of(TutorialMod.MOD_ID,name), item);
@@ -20,8 +21,9 @@ public class ModItems {
     public static void registerModItems() {
         TutorialMod.LOGGER.info("Registering mod item for " + TutorialMod.MOD_ID);
 
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries -> {
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(entries -> {
             entries.add(PINK_GEM);
+            entries.add(RED_GEM);
         });
     }
 }
